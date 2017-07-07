@@ -29,3 +29,5 @@ const endpoints = {
     delete_account_url: `${url}/api/delete_account`
   }
 };
+
+apiRouter.use(express.static(path.join(_dirname, 'public')));
