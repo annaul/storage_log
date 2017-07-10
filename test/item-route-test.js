@@ -19,8 +19,6 @@ const exampleItem = {
   location: 'test shelf'
 };
 
-console.log('========',exampleItem);
-
 describe('Item Routes', function() {
   describe('POST: /api/item', function() {
     describe('valid item posting', () => {
@@ -41,10 +39,30 @@ describe('Item Routes', function() {
           if (err) return done(err);
           expect(res.status).to.equal(200);
           expect(res.body.itemName).to.equal('test box');
+          expect(res.body.description).to.equal('black test box');
+          expect(res.body.location).to.equal('test shelf');
           this.exampleItem = res.body;
           done();
         })
-      })
+      });
+
+      it('should return 404 status, not found', done => {
+        request.post(`${url}/api/`)
+        .send(exampleItem)
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          done();
+        });
+      });
+
+      it('should return 400 status, bad request', done => {
+        request.post(`${url}/api/item`)
+        .send('bad item')
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          done();
+        });
+      });
     })
   })
 })
