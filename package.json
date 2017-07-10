@@ -1,0 +1,42 @@
+{
+  "name": "oauth_practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "DEBUG='storageApp*' mocha",
+    "start": "DEBUG='storageApp*' node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annaul/storage_log.git"
+  },
+  "keywords": [],
+  "author": "Anna Ulanova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annaul/storage_log/issues"
+  },
+  "homepage": "https://github.com/annaul/storage_log#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "chai": "^4.0.2",
+    "cors": "^2.8.3",
+    "debug": "^2.6.8",
+    "express": "^4.15.3",
+    "http-errors": "^1.6.1",
+    "mongoose": "^4.11.1",
+    "morgan": "^1.8.2",
+    "node-uuid": "^1.4.8",
+    "superagent": "^3.5.2"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "superagent": "^3.5.2"
+  }
+}

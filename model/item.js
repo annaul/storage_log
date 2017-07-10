@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const createError = require('http-errors');
 const debug = require('debug')('storageApp:item-model');
 
-const jwt = require('jsonwebtoken');
 const Promise = require('bluebird');
 
 const Schema = mongoose.Schema;
