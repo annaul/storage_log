@@ -7,7 +7,6 @@ const Promise = require('bluebird');
 const Schema = mongoose.Schema;
 
 const itemSchema = Schema ({
-  itemID: { type: Schema.Types.ObjectId, required: true },
   itemName: { type: String, required: true },
   timeStamp: { type: Date, default: Date.now },
   status: { type: String, required: false },
@@ -15,3 +14,5 @@ const itemSchema = Schema ({
   location: { type: String, required: true },
   photo: { type: String }
 });
+
+const Item = module.exports = mongoose.model('item', itemSchema);

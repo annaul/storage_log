@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 const request = require('superagent');
-const Beast = require('../model/item.js');
+const Item = require('../model/item.js');
 
 const PORT = process.env.PORT || 3000;
 
@@ -13,15 +13,17 @@ require('../server.js');
 const url = `http://localhost:${PORT}`;
 
 const exampleItem = {
-  itemName: 'example item',
+  itemName: 'test box',
   timeStamp: new Date(),
-  description: 'example description',
-  location: 'example location'
+  description: 'black test box',
+  location: 'test shelf'
 };
+
+console.log('========',exampleItem);
 
 describe('Item Routes', function() {
   describe('POST: /api/item', function() {
-    describe('with a valid ID and item body', () => {
+    describe('valid item posting', () => {
       afterEach( done => {
         if (this.exampleItem) {
           Item.remove({})
@@ -38,7 +40,7 @@ describe('Item Routes', function() {
         .end((err, res) => {
           if (err) return done(err);
           expect(res.status).to.equal(200);
-          expect(res.body.itemName).to.equal('example item');
+          expect(res.body.itemName).to.equal('test box');
           this.exampleItem = res.body;
           done();
         })
