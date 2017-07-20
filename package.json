@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "DEBUG='storageApp*' mocha",
-    "start": "DEBUG='storageApp*' node server.js"
+    "start": "DEBUG='storageApp*' node app.js"
   },
   "repository": {
     "type": "git",
