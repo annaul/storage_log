@@ -21,6 +21,6 @@ app.use(cors());
 app.use(itemRouter);
 app.use(errors);
 
-app.listen(PORT, () => {
-  console.log(`server up: ${PORT}`);
+app.listen(process.env.PORT, '0.0.0.0', function(err) {
+  console.log('server runninng at ' + http.url );
 });
