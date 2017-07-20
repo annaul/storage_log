@@ -11,16 +11,22 @@ const itemRouter = require('./route/item-router.js');
 const errors = require('./lib/error-middleware.js');
 
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/item';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/storageApp';
 
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, {
+  useMongoClient: true
+});
 
 app.use(morgan('dev'));
 app.use(cors());
 app.use(itemRouter);
 app.use(errors);
 
-app.listen(process.env.PORT, '0.0.0.0', function(err) {
-  console.log('server runninng at ' + http.url );
+// app.listen(PORT, () => {
+//   console.log(`server up: ${PORT}`);
+// });
+
+app.listen(PORT, '0.0.0.0', function(err) {
+  console.log(`server up: ${PORT}`);
 });
