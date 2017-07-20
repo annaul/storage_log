@@ -1,10 +1,13 @@
-var http = require('http');
-var server = http.createServer(function(req, res) {
+const http = require('http');
+
+const PORT = process.env.PORT || 3000;
+
+const server = http.createServer(function(req, res) {
 		res.writeHead(200, { 'Content-Type': 'text/plain' });
 
-		var config = JSON.parse(process.env.APP_CONFIG);
-		var MongoClient = require('mongodb').MongoClient;
-		var mongoPassword = 'your_password_here';
+		const config = JSON.parse(process.env.APP_CONFIG);
+		const MongoClient = require('mongodb').MongoClient;
+		const mongoPassword = 'your_password_here';
 
 		MongoClient.connect(
 			"mongodb://" + config.mongo.user + ":" + mongoPassword + "@" +
