@@ -10,28 +10,28 @@ const app = express();
 const itemRouter = require('./route/item-router.js');
 const errors = require('./lib/error-middleware.js');
 
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.APP_CONFIG || 3000;
 // const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/storageApp';
 
 const http = require('http');
 
-APP_CONFIG = {
-  "mongo": {
-    "hostString": "mongodb://host:27017/storageApp",
-    "user": "anna",
-    "db": "storageApp"
-  }
-}
+// APP_CONFIG = {
+//   "mongo": {
+//     "hostString": "mongodb:27017/storageApp",
+//     "user": "anna",
+//     "db": "storageApp"
+//   }
+// }
 
 const server = http.createServer(function(req, res) {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
 
   var config = JSON.parse(process.env.APP_CONFIG);
   var MongoClient = require('mongodb').MongoClient;
-  var mongoPassword = 'your_password_here';
+  var mongoPassword = 'Kesha5';
 
   MongoClient.connect(
-    "mongodb://" + config.mongo.user + ":" + mongoPassword + "@" +
+    // "mongodb://" + config.mongo.user + ":" + mongoPassword + "@" +
     config.mongo.hostString,
     function(err, db) {
       if(!err) {
@@ -51,11 +51,11 @@ app.use(cors());
 app.use(itemRouter);
 app.use(errors);
 
-// server.listen(process.env.PORT);
+server.listen(process.env.APP_CONFIG);
 // app.listen(PORT, () => {
 //   console.log(`server up: ${PORT}`);
 // });
 
-server.listen(PORT, '0.0.0.0', function(err) {
-  console.log(`server up: ${PORT}`)
-});
+// server.listen(PORT, '0.0.0.0', function(err) {
+//   console.log(`server up: ${PORT}`)
+// });
