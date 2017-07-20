@@ -4,7 +4,7 @@ const Item = require('../model/item.js');
 
 const PORT = process.env.PORT || 3000;
 
-process.env.MONGODB_URI = 'mongodb://localhost/itemtest';
+process.env.APP_CONFIG = 'mongodb:27017/storageApp';
 
 require('../server.js');
 
