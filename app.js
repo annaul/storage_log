@@ -10,7 +10,8 @@ const server = http.createServer(function(req, res) {
 		const mongoPassword = 'your_password_here';
 
 		MongoClient.connect(
-			"mongodb://" + config.mongo.user + ":" + mongoPassword + "@" +
+			"mongodb://" + config.mongo.user,
+      + ":" + mongoPassword + "@" +
 		config.mongo.hostString,
 			function(err, db) {
 						if(!err) {
@@ -20,4 +21,6 @@ const server = http.createServer(function(req, res) {
 						}
 		});
 });
-server.listen(process.env.PORT);
+server.listen(PORT, '0.0.0.0', function(err) {
+  console.log(`server up: ${PORT}`)
+});

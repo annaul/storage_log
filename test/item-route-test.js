@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 process.env.APP_CONFIG = 'mongodb:27017/storageApp';
 
-require('../server.js');
+require('../app.js');
 
 const url = `http://localhost:${PORT}`;
 
